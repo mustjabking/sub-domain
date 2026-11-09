@@ -498,7 +498,7 @@
             <span class="card-link">Open AI Builder →</span>
           </a>
 
-           <a class="card c-ai" href="https://vg.tlschool.duckdns.org/">
+           <a class="card c-ai" href="https://avelia2.pages.dev/vg">
             <div class="card-icon">🤖</div>
             <h3>AI Builder — PUBLISH Your AI In Seconds</h3>
             <p>BUILD YOUR OWN AI VIDEO GENERATOR.</p>
