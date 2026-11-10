@@ -490,6 +490,13 @@
             <span class="card-link">Open Game Builder →</span>
           </a>
 
+           <a class="card c-game" href="https://avelia2.pages.dev/a.gb">
+            <div class="card-icon">🎮</div>
+            <h3>AVELIA Game Builder</h3>
+            <p>Create your own CANDY CRUSH TYPE GAMES. Drag, drop, customise and play — no coding needed.</p>
+            <span class="card-link">Open Game Builder →</span>
+          </a>
+
 
           <a class="card c-ai" href="https://avelia2.pages.dev/aibuilder">
             <div class="card-icon">🤖</div>
