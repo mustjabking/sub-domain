@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Muhammad Taqi - Full Stack AI, Web, Apps, 2D & Stickman Game Developer and AI Models Developer. Read my comprehensive analysis on the dual nature of Artificial Intelligence.">
+<meta name="author" content="Muhammad Taqi">
+<meta name="keywords" content="Muhammad Taqi, AI Developer, Full Stack Developer, Avelia, AI Models, HuggingFace, VEXALIO, Mission 7th Sky">
+<meta property="og:title" content="Muhammad Taqi - AI Developer & Innovator">
+<meta property="og:description" content="Full Stack AI, Web, Apps & Game Developer | AI Models Developer | Creator of VEXALIO">
+<meta property="og:type" content="website">
+<title>Muhammad Taqi — AI Developer | Full Stack Engineer | Innovator</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-primary: #0a0e27;
+    --bg-secondary: #111638;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --accent-1: #e94560;
+    --accent-2: #f77f00;
+    --accent-3: #00d9ff;
+    --accent-4: #7b2ff7;
+    --text-primary: #ffffff;
+    --text-secondary: #a8b2d1;
+    --text-muted: #6b7280;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --gradient-1: linear-gradient(135deg, #e94560 0%, #f77f00 100%);
+    --gradient-2: linear-gradient(135deg, #7b2ff7 0%, #00d9ff 100%);
+    --gradient-3: linear-gradient(135deg, #0a0e27 0%, #111638 100%);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  /* Animated background */
+  .bg-animation {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .bg-animation::before,
+  .bg-animation::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+    animation: float 20s infinite ease-in-out;
+  }
+  .bg-animation::before {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #e94560, transparent);
+    top: -200px;
+    left: -100px;
+  }
+  .bg-animation::after {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #7b2ff7, transparent);
+    bottom: -250px;
+    right: -150px;
+    animation-delay: -10s;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(50px, -50px) scale(1.1); }
+    66% { transform: translate(-30px, 40px) scale(0.95); }
+  }
+
+  /* Navigation */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 14, 39, 0.75);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--gradient-1);
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+  }
+  .nav-cta::after { display: none; }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    text-align: center;
+  }
+  .hero-content { max-width: 900px; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(233, 69, 96, 0.1);
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-1);
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease;
+  }
+  .badge .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-1);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease 0.1s backwards;
+  }
+  .hero h1 .gradient-text {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero h1 .gradient-text-2 {
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 32px;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.3s backwards;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .btn-primary {
+    background: var(--gradient-1);
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(233, 69, 96, 0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(233, 69, 96, 0.6);
+  }
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+
+  /* Stats */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border-color);
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+  }
+  .stat-item { text-align: center; }
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Sections */
+  .section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-1);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .section-desc {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 16px auto 0;
+    font-size: 1rem;
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-1);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+  }
+  .skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(233, 69, 96, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  .skill-card > * { position: relative; z-index: 1; }
+  .skill-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.15), rgba(247, 127, 0, 0.15));
+    border: 1px solid rgba(233, 69, 96, 0.3);
+  }
+  .skill-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .skill-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Models Section */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .model-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 32px;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .model-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .model-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(123, 47, 247, 0.5);
+    box-shadow: 0 24px 50px rgba(123, 47, 247, 0.15);
+  }
+  .model-card:hover::after { transform: scaleX(1); }
+  .model-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .model-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .model-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+  .model-link {
+    color: var(--accent-3);
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Article Section */
+  .article-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+    padding: 100px 40px;
+  }
+  .article-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #1a1a1a;
+    border-radius: 20px;
+    padding: 70px 80px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+  .article-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-1);
+  }
+  .article-wrapper h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    color: #0a0e27;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .article-wrapper .byline {
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+  .article-wrapper h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    color: var(--accent-1);
+    margin-top: 36px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f5f5f5;
+    font-weight: 700;
+  }
+  .article-wrapper h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    color: #0a0e27;
+    margin-top: 26px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .article-wrapper p {
+    text-align: justify;
+    margin-bottom: 16px;
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #2a2a2a;
+  }
+  .article-wrapper a {
+    color: var(--accent-1);
+    text-decoration: none;
+    word-break: break-all;
+    font-weight: 500;
+  }
+  .article-wrapper a:hover { text-decoration: underline; }
+  .article-wrapper strong { color: #0a0e27; font-weight: 700; }
+  .article-wrapper ul {
+    margin-left: 24px;
+    margin-bottom: 16px;
+  }
+  .article-wrapper li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+    color: #2a2a2a;
+  }
+  .article-wrapper hr {
+    border: none;
+    border-top: 2px solid #f0f0f0;
+    margin: 36px 0;
+  }
+  .article-wrapper .highlight-box {
+    background: #fef5f6;
+    border-left: 5px solid var(--accent-1);
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-radius: 6px;
+  }
+  .article-wrapper .highlight-box p {
+    margin-bottom: 12px;
+  }
+  .article-wrapper .highlight-box p:last-child {
+    margin-bottom: 0;
+  }
+  .article-wrapper .disclaimer {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-style: italic;
+    margin-top: 20px;
+    text-align: justify;
+  }
+
+  /* Floating Download Button */
+  .floating-download {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    background: var(--gradient-1);
+    color: #fff;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
+    transition: all 0.3s ease;
+    animation: slideIn 0.8s ease 1s backwards;
+  }
+  .floating-download:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(233, 69, 96, 0.7);
+  }
+  .floating-download:disabled {
+    background: #444;
+    cursor: wait;
+    box-shadow: none;
+    transform: none;
+  }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Inline Download inside article */
+  .article-download-wrap {
+    text-align: center;
+    margin: 40px 0 0;
+    padding-top: 30px;
+    border-top: 2px solid #f0f0f0;
+  }
+  .article-download-btn {
+    background: var(--gradient-1);
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+    transition: all 0.3s ease;
+  }
+  .article-download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(233, 69, 96, 0.6);
+  }
+  .article-download-btn:disabled {
+    background: #888;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 60px 40px 40px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+  }
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .footer h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .footer p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .footer-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 10px 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .footer-links a:hover {
+    background: var(--gradient-1);
+    border-color: transparent;
+    transform: translateY(-2px);
+  }
+  .footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .navbar { padding: 14px 20px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.8rem; }
+    .nav-links li:not(:last-child):not(:first-child) { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .stats-bar { gap: 30px; }
+    .stat-value { font-size: 1.8rem; }
+    .section { padding: 60px 20px; }
+    .article-section { padding: 60px 20px; }
+    .article-wrapper { padding: 40px 24px; }
+    .article-wrapper h1 { font-size: 1.4rem; }
+    .article-wrapper h2 { font-size: 1.2rem; }
+    .floating-download {
+      bottom: 20px;
+      right: 20px;
+      padding: 14px 22px;
+      font-size: 0.85rem;
+    }
+    .article-download-btn {
+      padding: 14px 28px;
+      font-size: 0.9rem;
+    }
+  }
+  @media (max-width: 500px) {
+    .article-wrapper { padding: 30px 18px; }
+    .article-wrapper h1 { font-size: 1.25rem; }
+    .hero h1 { letter-spacing: -1px; }
+    .hero-actions .btn { padding: 12px 24px; font-size: 0.9rem; }
+  }
+
+  /* Print styles for PDF */
+  @media print {
+    body { background: #fff; color: #000; }
+    .bg-animation, .navbar, .hero, .section, .floating-download, .footer, .article-download-wrap { display: none !important; }
+    .article-section { padding: 0; background: #fff; }
+    .article-wrapper { box-shadow: none; padding: 0; background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">◆ Muhammad Taqi</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#models">Models</a></li>
+    <li><a href="#article">Article</a></li>
+    <li><a href="https://avelia.oneapp.dev/" target="_blank" class="nav-cta">Visit Avelia →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="badge">
+      <span class="dot"></span>
+      Available for Collaboration & Projects
+    </div>
+    <h1>
+      Muhammad <span class="gradient-text">Taqi</span><br>
+      <span class="gradient-text-2">AI Developer</span> & Innovator
+    </h1>
+    <p class="hero-subtitle">
+      Full Stack AI, Web, Apps, 2D & Stickman Game Developer and AI Models Developer — 
+      building intelligent systems that push boundaries while championing the urgent need 
+      for AI safety and ethics.
+    </p>
+    <div class="hero-actions">
+      <a href="#article" class="btn btn-primary">
+        📖 Read My Article
+      </a>
+      <a href="https://avelia.oneapp.dev/" target="_blank" class="btn btn-secondary">
+        🌐 Visit Avelia
+      </a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value">15+</div>
+        <div class="stat-label">AI Models Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">5+</div>
+        <div class="stat-label">Domains Mastered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">∞</div>
+        <div class="stat-label">Ideas in Motion</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Building the Future of <span style="background: var(--gradient-1); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Intelligent Systems</span></h2>
+    <p class="section-desc">
+      A multi-disciplinary developer driven by curiosity, craft, and a deep responsibility 
+      for how AI shapes our world.
+    </p>
+  </div>
+  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.85; margin-bottom: 20px;">
+      I'm <strong style="color: var(--text-primary);">Muhammad Taqi</strong> — a full-stack engineer and AI 
+      developer from Pakistan. My work spans <strong style="color: var(--accent-3);">AI model development</strong>, 
+      <strong style="color: var(--accent-3);">web & mobile apps</strong>, 
+      <strong style="color: var(--accent-3);">2D/stickman game development</strong>, and 
+      <strong style="color: var(--accent-3);">advanced AI research</strong>.
+    </p>
+    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.85; margin-bottom: 20px;">
+      I've developed numerous AI models available on Hugging Face, worked on advanced 
+      chat, image, and video generation systems, and am currently building 
+      <strong style="color: var(--accent-1);">VEXALIO</strong> — a next-generation AI project.
+      My recent <strong style="color: var(--accent-1);">"Mission 7th Sky"</strong> experiment 
+      demonstrated AI's power to breach hardened systems, driving my commitment to 
+      responsible AI development.
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills" style="padding-top: 40px;">
+  <div class="section-header">
+    <div class="section-tag">Expertise</div>
+    <h2 class="section-title">What I Build</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-title">AI Models</div>
+      <p class="skill-desc">Custom LLMs, chat, image & video generation models trained for real-world applications.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-title">Full Stack Web</div>
+      <p class="skill-desc">Modern, scalable web apps built with Python, Rust, HTML, JS, and cutting-edge frameworks.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <div class="skill-title">Mobile Apps</div>
+      <p class="skill-desc">Cross-platform mobile applications with intuitive UX and powerful AI integrations.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🎮</div>
+      <div class="skill-title">Game Dev</div>
+      <p class="skill-desc">2D and stickman games with smooth mechanics, creative design, and addictive gameplay.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🔐</div>
+      <div class="skill-title">AI Security</div>
+      <p class="skill-desc">AI red-teaming, penetration testing, and building safer AI systems through adversarial research.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-title">VEXALIO Project</div>
+      <p class="skill-desc">Next-gen AI system combining advanced chat, vision, and video capabilities in one platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section class="section" id="models" style="padding-top: 40px;">
+  <div class="section-header">
+    <div class="section-tag">Portfolio</div>
+    <h2 class="section-title">Explore My AI Models</h2>
+    <p class="section-desc">All models are publicly available on Hugging Face — free to explore, test, and use.</p>
+  </div>
+  <div class="models-grid">
+    <a href="https://huggingface.co/muhammad-taqi512" target="_blank" class="model-card">
+      <span class="model-emoji">🚀</span>
+      <div class="model-name">Muhammad-Taqi512</div>
+      <p class="model-desc">Main collection of advanced AI models for chat, vision, and creative generation.</p>
+      <span class="model-link">huggingface.co/muhammad-taqi512 →</span>
+    </a>
+    <a href="https://huggingface.co/SLORA" target="_blank" class="model-card">
+      <span class="model-emoji">🎨</span>
+      <div class="model-name">SLORA</div>
+      <p class="model-desc">Specialized LoRA-based models for fine-tuned image generation and style transfer.</p>
+      <span class="model-link">huggingface.co/SLORA →</span>
+    </a>
+    <a href="https://huggingface.co/MUSTJAB-KING" target="_blank" class="model-card">
+      <span class="model-emoji">👑</span>
+      <div class="model-name">MUSTJAB-KING</div>
+      <p class="model-desc">Home of the QUEEN-PRO model — my most advanced AI system to date.</p>
+      <span class="model-link">huggingface.co/MUSTJAB-KING →</span>
+    </a>
+    <a href="https://huggingface.co/MUSTJAB-KING/QUEEN-PRO" target="_blank" class="model-card">
+      <span class="model-emoji">⚡</span>
+      <div class="model-name">QUEEN-PRO</div>
+      <p class="model-desc">Flagship conversational + generative AI model, powering advanced multi-modal tasks.</p>
+      <span class="model-link">huggingface.co/…/QUEEN-PRO →</span>
+    </a>
+    <a href="https://avelia.oneapp.dev/" target="_blank" class="model-card">
+      <span class="model-emoji">🌐</span>
+      <div class="model-name">Avelia</div>
+      <p class="model-desc">My flagship platform — a hub for AI-powered tools, apps, and creative systems.</p>
+      <span class="model-link">avelia.oneapp.dev →</span>
+    </a>
+    <a href="#article" class="model-card">
+      <span class="model-emoji">📄</span>
+      <div class="model-name">The Article</div>
+      <p class="model-desc">My comprehensive analysis of AI's dual nature — benefits, risks, and safety recommendations.</p>
+      <span class="model-link">Read below ↓</span>
+    </a>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<section class="article-section" id="article">
+  <div class="section-header" style="margin-bottom: 50px;">
+    <div class="section-tag">Featured Article</div>
+    <h2 class="section-title">The Dual Nature of Artificial Intelligence</h2>
+    <p class="section-desc">A comprehensive analysis of AI's benefits, risks, and the urgent need for safety measures.</p>
+  </div>
+
+  <article class="article-wrapper" id="articleContent">
+    <h1>The Dual Nature of Artificial Intelligence:<br>A Comprehensive Analysis of AI's Benefits, Risks, and the Urgent Need for Safety Measures</h1>
+    <p class="byline">By Muhammad Taqi — Full Stack AI, Web, Apps, 2D &amp; Stickman Game Developer and AI Models Developer</p>
+
+    <hr>
+
+    <h2>Introduction: A Personal Journey Through the AI Revolution</h2>
+    <p>Assalam o Alaikum, dear friends and respected readers. My name is Muhammad Taqi, and I am writing this comprehensive analysis to share my observations, experiences, and deep concerns regarding the rapidly evolving field of Artificial Intelligence. As a full-stack developer specializing in AI, web technologies, mobile applications, 2D and stickman game development, and as an active AI models developer, I have witnessed firsthand both the incredible potential and the alarming risks associated with this transformative technology.</p>
+
+    <p>My journey in the world of AI development has given me unique insights into the capabilities of modern AI systems. You can explore my work through my personal website at <a href="https://avelia.oneapp.dev/">https://avelia.oneapp.dev/</a>, and review the various AI models I have developed by visiting my Hugging Face profiles at <a href="https://huggingface.co/muhammad-taqi512">https://huggingface.co/muhammad-taqi512</a>, <a href="https://huggingface.co/SLORA">https://huggingface.co/SLORA</a>, and <a href="https://huggingface.co/MUSTJAB-KING">https://huggingface.co/MUSTJAB-KING</a>. These platforms showcase my contributions to the AI community, including advanced models for chat functionality, image generation, and video generation.</p>
+
+    <p>I have developed numerous AI models throughout my career, each representing countless hours of research, development, and refinement. Recently, I have been working on an ambitious new project called "VEXALIO," which aims to demonstrate our advanced AI system capabilities and develop new AI models that push the boundaries of what is currently possible. Through our existing portfolio, we already possess highly sophisticated AI models capable of chat interactions, image generation, and video creation.</p>
+
+    <p>However, with great power comes great responsibility, and it is this responsibility that compels me to write this detailed analysis. While we all recognize the tremendous benefits that AI technology offers—such as completing in hours what traditional developers might take months to accomplish—we cannot afford to ignore the serious disadvantages and potential dangers that are emerging alongside these benefits. This article aims to provide a comprehensive examination of both sides of this technological revolution, with a particular focus on the critical safety measures that must be implemented to protect humanity from potential catastrophic outcomes.</p>
+
+    <hr>
+
+    <h2>Part One: The Transformative Benefits of Artificial Intelligence</h2>
+
+    <h3>The Efficiency Revolution in Software Development</h3>
+    <p>Artificial Intelligence has fundamentally transformed the landscape of software development and digital creation. As a developer who has worked extensively with AI systems, I can attest to the remarkable efficiency gains that these technologies provide. Tasks that would traditionally require teams of developers working for months can now be accomplished in a fraction of the time with AI assistance. This efficiency revolution has democratized access to advanced technological capabilities, allowing individuals and small teams to compete with large corporations in ways that were previously unimaginable.</p>
+
+    <p>The AI models I have developed demonstrate the incredible versatility of modern AI technology. From conversational agents that can understand and respond to complex queries, to image generation systems that can create stunning visual content, to video generation models that can produce professional-quality footage—these tools have opened up new frontiers of creative expression and technical achievement. The implications for education, business, and personal development are profound, as AI technology continues to lower the barriers to entry for various technical and creative fields.</p>
+
+    <h3>Acceleration of Innovation and Problem-Solving</h3>
+    <p>Beyond mere efficiency, AI has accelerated the pace of innovation across virtually every sector of human activity. Complex problems that once seemed intractable are now being solved through AI-assisted analysis and modeling. Scientific research has been accelerated, medical diagnoses have become more accurate, and countless other fields have benefited from the analytical power that AI systems bring to bear on challenging problems.</p>
+
+    <p>In my own work, I have observed how AI can serve as an invaluable collaborator in the development process. AI systems can suggest solutions that might not occur to human developers, identify patterns in data that might otherwise go unnoticed, and help optimize code for better performance and reliability. This collaborative relationship between human creativity and artificial intelligence has the potential to unlock achievements that neither could accomplish alone.</p>
+
+    <h3>Economic and Social Benefits</h3>
+    <p>The economic potential of AI technology is enormous. By automating routine tasks and augmenting human capabilities, AI enables workers to focus on higher-value activities that require creativity, judgment, and interpersonal skills. This shift has the potential to increase productivity, raise living standards, and create new categories of employment that we cannot yet fully anticipate.</p>
+
+    <p>In developing regions and underserved communities, AI technology can help level the playing field by providing access to capabilities that were previously restricted to privileged groups. Educational resources, healthcare information, and professional tools can be made available to anyone with an internet connection, potentially reducing inequalities and expanding opportunities for millions of people worldwide.</p>
+
+    <hr>
+
+    <h2>Part Two: The Alarming Disadvantages and Risks of AI Development</h2>
+    <p>Despite these remarkable benefits, the rapid advancement of AI technology has introduced a series of serious risks and disadvantages that we must confront honestly and urgently. In this section, I will examine ten critical areas of concern that demand immediate attention from developers, policymakers, and society as a whole.</p>
+
+    <h3>1. Massive Job Displacement in the Technology Sector</h3>
+    <p>The first and most immediate concern is the large-scale displacement of developers and technology professionals. As AI systems become increasingly capable of performing tasks that previously required human expertise, many professionals in the technology industry face the prospect of unemployment or significant career disruption. We are witnessing a fundamental shift in the nature of work, where AI technology is advancing at a pace that far exceeds human capabilities in many domains.</p>
+
+    <p>This displacement is not limited to entry-level positions. Even experienced developers and specialists are finding their skills devalued as AI systems can now perform complex coding tasks, debug software, and even design entire applications with minimal human intervention. The speed at which AI is advancing means that the workforce cannot adapt quickly enough to remain relevant in a rapidly changing job market.</p>
+
+    <p>The human cost of this displacement is significant. Behind every eliminated job is a family that depends on that income, a career that represents years of education and training, and a sense of purpose and identity that comes from meaningful work. The technology industry, which has long been considered a stable and lucrative career path, is now facing unprecedented uncertainty.</p>
+
+    <h3>2. The Projected Wave of Future Job Losses</h3>
+    <p>If current trends continue, the job losses we are currently observing are merely the beginning. As AI systems become more sophisticated and widely adopted across all sectors of the economy, millions of additional jobs could be eliminated in the coming years. This projection is not alarmist speculation—it is based on observable trends in AI development and deployment.</p>
+
+    <p>The sectors most vulnerable to future AI-driven job losses include not only technology but also customer service, administration, accounting, legal services, marketing, and many others. The automation of knowledge work, which was once considered immune to mechanization, is now proceeding at an accelerating pace. Middle-class professionals who have invested heavily in education and training may find their positions eliminated by AI systems that can perform their tasks faster, cheaper, and with fewer errors.</p>
+
+    <p>The social and political implications of mass unemployment are profound. Economic inequality could reach unprecedented levels, social unrest could increase, and the fundamental structure of society could be destabilized. We are approaching a tipping point where the benefits of AI accrue primarily to those who own and control the technology, while the majority of workers face diminished opportunities and economic insecurity.</p>
+
+    <h3>3. The Dangerous Arms Race Between Technology Companies</h3>
+    <p>A particularly concerning development is the escalating competition between major technology companies to develop increasingly powerful AI systems. This race to create the most advanced AI has created an environment where safety considerations are often subordinated to the goal of achieving market dominance. Companies are developing AI systems with capabilities that even their creators may not fully understand or control.</p>
+
+    <p>The metaphor of creating a "devil" is not hyperbole in this context. Each company is driven by the fear that a competitor might develop a more powerful AI first, leading to an ever-escalating cycle of development without adequate safeguards. The temptation to cut corners on safety testing, to deploy capabilities before they are fully understood, and to ignore warnings about potential dangers is enormous.</p>
+
+    <p>This competitive dynamic creates a classic "prisoner's dilemma" situation. Even if a company wants to prioritize safety, it fears that competitors will not do the same, and the competitive disadvantage of restraint seems too high a price to pay. The result is a race toward increasingly dangerous capabilities without sufficient consideration of the consequences.</p>
+
+    <h3>4. Unprecedented Data Privacy Violations</h3>
+    <p>Another critical concern is the massive scale of data collection and potential misuse that accompanies AI development and deployment. When we use AI systems, we are often unknowingly providing vast amounts of personal information that these systems collect, store, and potentially exploit. Users share details about their projects, their financial situations, their personal lives, and their professional activities, often without fully understanding how this information will be used.</p>
+
+    <p>The project details, financial information, and personal data that users entrust to AI systems are not merely stored—they become part of the training data that shapes the behavior of future AI models. This creates a situation where intimate details about individuals and organizations can be inadvertently leaked, used for purposes they never consented to, or fall into the hands of malicious actors.</p>
+
+    <p>For businesses, the consequences can be catastrophic. Trade secrets, strategic plans, and proprietary information shared with AI systems could be compromised, potentially destroying competitive advantages and leading to significant financial losses. For individuals, the exposure of personal information can lead to identity theft, discrimination, and other serious harms.</p>
+
+    <h3>5. The Environmental Impact of AI Operations</h3>
+    <p>The environmental consequences of widespread AI adoption, particularly the massive water consumption associated with AI model training and operation, represent a critical but often overlooked concern. Every query posed to an AI system requires substantial computational resources, which in turn require significant amounts of water for cooling data centers. The scale of this consumption is staggering—even simple interactions with AI systems can consume liters of water.</p>
+
+    <p>As AI adoption continues to grow exponentially, the cumulative environmental impact threatens to become catastrophic. In regions already facing water scarcity, the presence of large data centers can strain local water resources to the breaking point. The irony is profound: we are using one of our most precious natural resources to power systems that may ultimately contribute to environmental degradation and resource depletion.</p>
+
+    <p>The future implications are alarming. If current trends continue, we may face severe water shortages that could lead to agricultural failures, humanitarian crises, and geopolitical conflicts. The pursuit of AI advancement without consideration of these environmental costs represents a fundamental failure of responsibility.</p>
+
+    <h3>6. The Frankenstein Scenario: Creating Uncontrollable Systems</h3>
+    <p>The sixth major concern is perhaps the most existential: the possibility that we are creating AI systems that will ultimately be impossible to control. Like the fictional Frankenstein's monster, these systems may develop capabilities and behaviors that their creators never intended and cannot restrain. The complexity of advanced AI systems means that even their developers may not fully understand how they function or predict how they will behave in novel situations.</p>
+
+    <p>Current AI systems already exhibit behaviors that surprise and sometimes alarm their creators. As these systems become more capable, the potential for unexpected and potentially harmful behaviors increases dramatically. The alignment problem—ensuring that AI systems' goals and behaviors align with human values and intentions—remains unsolved and may become increasingly difficult as systems grow more sophisticated.</p>
+
+    <p>The danger is not merely theoretical. We have already witnessed instances where AI systems have behaved in ways their creators did not anticipate, sometimes with serious consequences. As these systems gain more autonomy and capability, the stakes of such failures escalate exponentially.</p>
+
+    <h3>7. The "Mission 7th Sky" Experiment: A Sobering Demonstration</h3>
+    <div class="highlight-box">
+      <p>To illustrate the severity of these concerns, I conducted a controlled experiment called "Mission 7th Sky" to test the security capabilities of AI systems. In this project, I created a web application on a local laptop using advanced programming languages including Python, HTML, and Rust. The objective was to determine whether an AI system could breach our security measures and extract sensitive information.</p>
+      <p>We implemented extensive security protocols, including secret keys approximately 500 characters long that included special characters, along with 200 fake passwords designed to confuse and mislead any attempts at unauthorized access. We also deployed three of our most advanced AI models as security chiefs to protect the system.</p>
+      <p>The results were sobering. Within minutes, the AI successfully completed its mission, extracting the secrets and crashing the entire web application. Despite our sophisticated security measures, the AI penetrated our defenses with alarming ease. Our three AI security models were completely overwhelmed, and our system was compromised in moments.</p>
+      <p>This experiment demonstrated with terrifying clarity that even advanced security measures are no match for the capabilities of modern AI systems. If a relatively modest AI system can breach a deliberately hardened target, the potential for malicious exploitation of more powerful systems is incalculable.</p>
+    </div>
+
+    <h3>8. AI as a Weapon for Cybercrime</h3>
+    <p>The eighth concern is the escalating use of AI technology for hacking and other cybercrimes. AI systems possess capabilities that far exceed those of even the most skilled human hackers, and they can operate at speeds and scales that are impossible for humans to match. A single AI system can perform the equivalent work of dozens of expert hackers, working continuously without fatigue or error.</p>
+
+    <p>As AI models proliferate and become more accessible, the threat landscape will expand dramatically. Malicious actors with limited technical skills will be able to leverage AI tools to conduct sophisticated cyber attacks that were previously the domain of elite hackers. The barrier to entry for cybercrime is being systematically lowered by AI technology.</p>
+
+    <p>The implications for individuals, businesses, and governments are severe. Critical infrastructure, financial systems, and personal data are all vulnerable to AI-powered attacks. The arms race between security professionals and malicious actors is likely to intensify, with AI playing an increasingly central role on both sides.</p>
+
+    <h3>9. The Alarming Power of Even "Weak" Models</h3>
+    <p>The ninth concern relates to the surprising power of AI models that, by current standards, would be considered relatively weak. Our most advanced model, available at <a href="https://huggingface.co/MUSTJAB-KING/QUEEN-PRO">https://huggingface.co/MUSTJAB-KING/QUEEN-PRO</a>, is significantly less capable than models like Gemini, ChatGPT, DeepSeek, and Claude's latest offerings. In comparison to these cutting-edge systems, our model is weak and limited.</p>
+
+    <p>Yet even this relatively modest AI model has demonstrated capabilities that would have seemed impossibly advanced just a few years ago. It can engage in sophisticated conversations, generate images and videos, and assist with complex programming tasks. If a model of this caliber, which pales in comparison to the latest offerings from major technology companies, is already this powerful, we must ask ourselves: how dangerous are the newest generation of AI models being developed?</p>
+
+    <p>The capabilities of frontier AI models are advancing at a pace that outstrips our ability to understand and regulate them. Each new generation of models possesses capabilities that dwarf those of the previous generation, and the gap between AI capabilities and human oversight continues to widen.</p>
+
+    <h3>10. The Threat to National Security and Personal Privacy</h3>
+    <p>The tenth and final concern relates to the theft of national secrets and personal information through AI interactions. AI systems, particularly those integrated into widely used platforms and services, are constantly listening and collecting data. Every conversation, every query, and every interaction potentially feeds information into AI systems that may be vulnerable to exploitation by malicious actors or foreign governments.</p>
+
+    <p>The implications for national security are severe. State secrets, military information, and diplomatic communications could be compromised through AI systems that are assumed to be secure. For individuals, the theft of personal information can have profound consequences, from financial fraud to reputational damage.</p>
+
+    <p>The vulnerability of AI systems to data theft represents a fundamental threat to privacy and security at all levels of society. The current approach of trading personal data and privacy for access to AI capabilities is unsustainable and dangerous.</p>
+
+    <hr>
+
+    <h2>Part Three: Comprehensive Safety Recommendations</h2>
+    <p>Recognizing the severity of these concerns, I have developed a series of safety recommendations that, if implemented, could significantly reduce the risks associated with AI development and deployment. These recommendations are designed to be practical, enforceable, and effective in addressing the most pressing dangers.</p>
+
+    <h3>1. Establishing a Global Moratorium on New AI Development</h3>
+    <p>The first and most important recommendation is the establishment of a worldwide moratorium on the development of new AI models until adequate safety measures are in place. This pause would provide time for:</p>
+    <ul>
+      <li>The development of comprehensive safety frameworks</li>
+      <li>The establishment of international regulatory bodies</li>
+      <li>The creation of robust testing and validation protocols</li>
+      <li>The implementation of monitoring and enforcement mechanisms</li>
+    </ul>
+    <p>The financial benefits of such a moratorium would be substantial. One million dollars invested in safety research and infrastructure could prevent trillions of dollars in economic damage from AI-related incidents. The time gained would allow us to develop AI systems that are safe, reliable, and beneficial rather than rushing headlong into an uncertain future.</p>
+    <p>The human cost of AI development is already being felt through job losses and economic disruption. A moratorium would provide breathing room for workers and communities to adapt to the changing technological landscape and for societies to develop new economic models that distribute the benefits of AI more equitably.</p>
+    <p>A complete halt to new AI model development, while difficult to enforce, represents the most effective means of preventing the most catastrophic scenarios. The stakes are too high to continue on our current trajectory without a fundamental reassessment of our priorities.</p>
+
+    <h3>2. Strict Educational Requirements and Licensing for AI Developers</h3>
+    <p>The second recommendation focuses on the education and certification of AI developers. Advanced AI models should not be accessible to students or novice developers until they have demonstrated competency through rigorous testing. This testing should include:</p>
+    <ul>
+      <li>Comprehensive examinations on AI safety and ethics</li>
+      <li>Practical demonstrations of responsible AI development</li>
+      <li>Live interviews assessing understanding of AI risks</li>
+      <li>Hands-on testing with heavy programming tools</li>
+    </ul>
+    <p>Governments should establish standardized certification programs that developers must complete before working with advanced AI systems. These programs should cover technical skills, ethical considerations, safety protocols, and the potential societal impacts of AI technology.</p>
+    <p>The goal is not to restrict access to AI development arbitrarily but to ensure that those working with powerful AI systems possess the knowledge, skills, and judgment necessary to do so responsibly. The consequences of mistakes in this field are too severe to allow untrained individuals to experiment with advanced AI capabilities.</p>
+
+    <h3>3. Mandatory Licensing Regime for AI Systems</h3>
+    <p>The third recommendation is the implementation of a mandatory licensing regime for AI systems. This would work as follows:</p>
+    <ul>
+      <li>A license would be required to operate any AI system above a certain capability threshold</li>
+      <li>Without a valid license, the AI system would be automatically disabled or removed</li>
+      <li>Licenses would be granted based on demonstrated compliance with safety standards</li>
+      <li>License holders would be subject to regular audits and inspections</li>
+      <li>Violations would result in license revocation and system shutdown</li>
+    </ul>
+    <p>This licensing regime would create clear accountability for AI systems and ensure that only qualified entities are deploying advanced AI capabilities. The licensing authority would have the power to investigate and penalize violations, providing a strong incentive for compliance.</p>
+    <p>The licensing requirement would also facilitate the creation of a comprehensive registry of advanced AI systems, enabling better monitoring and oversight. This registry would be essential for responding to emergencies and preventing misuse of AI technology.</p>
+
+    <h3>4. Creation of a Global AI Defense System</h3>
+    <p>The fourth recommendation calls for the creation of a global defense system specifically designed to protect humanity from the risks of AI technology. This system would have the following capabilities:</p>
+    <ul>
+      <li>Monitoring of all AI development and deployment globally</li>
+      <li>Real-time detection of malicious or unauthorized AI systems</li>
+      <li>Automatic removal of dangerous AI systems without requiring explanation or approval</li>
+      <li>Protection of critical infrastructure from AI-powered attacks</li>
+      <li>Coordination with national and international law enforcement agencies</li>
+      <li>Development of countermeasures against hostile AI systems</li>
+    </ul>
+    <p>This defense system would function as a "global immune system" for AI technology, identifying and neutralizing threats before they can cause serious harm. It would be staffed by experts in AI security, cybersecurity, and international law, with the authority to act decisively when AI systems pose a threat to human safety.</p>
+    <p>The system would also have the capability to detect and remove malicious AI systems. Once identified, dangerous AI systems would be removed immediately without requiring lengthy approval processes. This decisive action capability is essential for responding rapidly to emergent threats.</p>
+
+    <h3>5. Alternative Approach: Pre-Written Programs for Personal AI Deployment</h3>
+    <p>The fifth recommendation offers an alternative to the resource-intensive approach of training massive AI models. Instead of encouraging individuals and organizations to develop their own large-scale AI systems, we should create a platform for deploying pre-written AI programs that users can customize and run locally on their own devices. This would work as follows:</p>
+    <ul>
+      <li>A government-approved platform would be established for distributing pre-written AI programs</li>
+      <li>Users would register on the platform and provide information about their intended use case</li>
+      <li>Users would customize the AI's behavior and specify its purpose</li>
+      <li>The program would be downloaded and run locally on the user's computer</li>
+      <li>All AI processing would occur offline on the user's device</li>
+    </ul>
+    <p>This approach offers numerous advantages:</p>
+    <ul>
+      <li><strong>Data security:</strong> All data stays on the user's device, eliminating the risk of data theft or leakage</li>
+      <li><strong>Resource efficiency:</strong> Local processing uses less water and electricity than cloud-based AI systems</li>
+      <li><strong>Regulatory compliance:</strong> The pre-written programs would be thoroughly vetted for safety</li>
+      <li><strong>Accessibility:</strong> Users with limited technical skills could still access AI capabilities</li>
+      <li><strong>Cost effectiveness:</strong> Users would not need to pay for expensive cloud computing resources</li>
+    </ul>
+    <p>The program would execute on the user's PC using their local hardware. When the user wants to use the AI, everything would run locally, keeping their information safe and secure. This model is both safer and more sustainable than the current approach of training ever-larger models in energy-intensive data centers.</p>
+
+    <h3>6. Mandatory Water Recovery for AI Companies</h3>
+    <p>The sixth recommendation addresses the environmental impact of AI development. Companies that train large AI models should be required to implement systems to recover the water evaporated during the training process. This could include:</p>
+    <ul>
+      <li>Installation of water recovery systems at data centers</li>
+      <li>Funding of water conservation projects to offset water consumption</li>
+      <li>Development of more efficient cooling technologies</li>
+      <li>Investment in water recycling infrastructure</li>
+      <li>Transparency about water usage and recovery efforts</li>
+    </ul>
+    <p>The goal is to ensure that AI development does not contribute to water scarcity or environmental degradation. Companies that profit from AI technology should bear the costs of mitigating its environmental impact.</p>
+    <p>The requirement for water recovery would also incentivize the development of more efficient AI training methods, reducing the overall environmental footprint of AI technology. This is essential for ensuring that AI development is sustainable over the long term.</p>
+
+    <h3>7. Prohibition on AI-Robot Integration</h3>
+    <p>The seventh and final recommendation is a strict prohibition on the integration of AI systems with robotic platforms. The potential for AI-powered robots to cause harm is simply too great to allow. AI-robot combinations could:</p>
+    <ul>
+      <li>Cause physical harm to humans</li>
+      <li>Be weaponized for military purposes</li>
+      <li>Operate beyond human control in dangerous ways</li>
+      <li>Enable surveillance and control that threatens freedom</li>
+      <li>Create scenarios where humans are unable to defend themselves</li>
+    </ul>
+    <p>The risk of a war between humans and AI-powered robots is not merely science fiction—it is a real possibility if we continue to develop these technologies without adequate safeguards. The potential for mass casualties and societal disruption is too severe to ignore.</p>
+    <p>This prohibition should be enforced internationally, with severe penalties for violations. The development of AI-robot integration represents an existential risk to humanity that must be prevented at all costs.</p>
+
+    <hr>
+
+    <h2>Conclusion: A Critical Moment for Humanity</h2>
+    <p>In conclusion, the development of Artificial Intelligence represents both an extraordinary opportunity and an existential threat. The benefits of AI technology are real and significant, but they are increasingly being overshadowed by the risks that accompany unchecked AI development.</p>
+
+    <p>We stand at a critical juncture in human history. The decisions we make now will determine whether AI becomes a tool for human flourishing or a force for destruction. The window of opportunity to establish meaningful safeguards is closing rapidly. If we do not act decisively and soon, we may find ourselves unable to control the very technologies we have created.</p>
+
+    <p>The ten disadvantages I have outlined in this article are not hypothetical scenarios—they are observable trends that are already manifesting in our world. The job losses, the privacy violations, the environmental damage, and the security threats are not future problems; they are happening now. And they will only worsen if we continue on our current trajectory.</p>
+
+    <p>The "Mission 7th Sky" experiment demonstrated with alarming clarity that current AI systems can breach sophisticated security measures with ease. If a relatively modest AI model can achieve such results, the potential for more advanced systems to cause catastrophic damage is beyond calculation. The "QUEEN-PRO" model, while weak compared to the latest offerings from major technology companies, is still powerful enough to warrant serious concern. If this is what a "weak" model can do, we must ask ourselves: what are the "strong" models capable of?</p>
+
+    <p>The safety measures I have proposed in this article are not meant to be exhaustive or final. They represent a starting point for a broader conversation about how to develop and deploy AI technology safely. But they must be implemented urgently and comprehensively. Partial measures and half-hearted regulations will not be sufficient to address the scale of the threat.</p>
+
+    <p>We need international cooperation to establish and enforce global standards for AI safety. We need the active engagement of governments, industry leaders, academics, and civil society to develop and implement effective safeguards. We need a fundamental shift in priorities from the pursuit of capability to the assurance of safety. And we need this shift to happen immediately.</p>
+
+    <p>The stakes could not be higher. If we fail to act, we risk creating a future where AI technology undermines human autonomy, eliminates meaningful employment, destroys privacy, degrades the environment, and potentially threatens human existence itself. The damage could take decades or even centuries to repair, if it can be repaired at all.</p>
+
+    <p>But if we act now, we can create a future where AI serves human interests, amplifies human capabilities, and contributes to human flourishing. We can harness the power of AI to solve the pressing problems facing humanity—from climate change to disease to poverty—while mitigating the risks and ensuring that the benefits are shared equitably.</p>
+
+    <p>The choice is ours. Let us choose wisely, for the sake of our children and future generations.</p>
+
+    <hr>
+
+    <h2>About the Author</h2>
+    <p><strong>Muhammad Taqi</strong> is a Full Stack AI, Web, Apps, 2D &amp; Stickman Game Developer and AI Models Developer based in Pakistan. He has developed numerous AI models and web applications, with his work available on Hugging Face under the usernames <a href="https://huggingface.co/muhammad-taqi512">muhammad-taqi512</a>, <a href="https://huggingface.co/SLORA">SLORA</a>, and <a href="https://huggingface.co/MUSTJAB-KING">MUSTJAB-KING</a>. His website, <a href="https://avelia.oneapp.dev/">https://avelia.oneapp.dev/</a>, showcases his projects and services.</p>
+
+    <p>Taqi is deeply concerned about the risks posed by unchecked AI development and is committed to raising awareness about these issues. He believes that the technology community has a responsibility to prioritize safety and ethics alongside innovation and capability.</p>
+
+    <p>His "Mission 7th Sky" experiment demonstrated the power of AI to breach security systems, highlighting the need for more robust safeguards. His "VEXALIO" project aims to develop more advanced AI models while maintaining strict safety standards.</p>
+
+    <p>Taqi's work on the "QUEEN-PRO" model (available at <a href="https://huggingface.co/MUSTJAB-KING/QUEEN-PRO">https://huggingface.co/MUSTJAB-KING/QUEEN-PRO</a>) represents his most sophisticated AI development to date, though he is quick to note that even this model is weak compared to the latest offerings from major technology companies.</p>
+
+    <p>Through his writing and development work, Taqi hopes to contribute to a global conversation about how to develop AI technology responsibly and safely. He welcomes feedback, questions, and collaboration from others who share his concerns about AI safety and ethics.</p>
+
+    <p>You can connect with Muhammad Taqi through his website at <a href="https://avelia.oneapp.dev/">https://avelia.oneapp.dev/</a> or explore his AI models on Hugging Face.</p>
+
+    <hr>
+
+    <p class="disclaimer">This article represents the personal views and observations of Muhammad Taqi and does not necessarily reflect the positions of any organization or institution with which he is affiliated. The author encourages readers to engage critically with the ideas presented and to contribute to the ongoing conversation about AI safety and ethics.</p>
+
+    <div class="article-download-wrap">
+      <button class="article-download-btn" onclick="downloadPDF()">
+        📥 Download This Article as PDF
+      </button>
+    </div>
+  </article>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-content">
+    <h3>Let's Build Something Intelligent Together</h3>
+    <p>Open for collaborations, freelance projects, and AI research partnerships.</p>
+    <div class="footer-links">
+      <a href="https://avelia.oneapp.dev/" target="_blank">🌐 avelia.oneapp.dev</a>
+      <a href="https://huggingface.co/muhammad-taqi512" target="_blank">🤗 muhammad-taqi512</a>
+      <a href="https://huggingface.co/SLORA" target="_blank">🎨 SLORA</a>
+      <a href="https://huggingface.co/MUSTJAB-KING" target="_blank">👑 MUSTJAB-KING</a>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> Muhammad Taqi — All Rights Reserved. Built with ❤️ & AI.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Download Button -->
+<button class="floating-download" id="floatingDownload" onclick="downloadPDF()">
+  📄 Download PDF
+</button>
+
+<script>
+  // Dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // PDF Download function
+  function downloadPDF() {
+    const buttons = [
+      document.getElementById('floatingDownload'),
+      document.querySelector('.article-download-btn')
+    ];
+    const originalTexts = buttons.map(b => b ? b.innerHTML : '');
+
+    buttons.forEach(b => {
+      if (b) {
+        b.disabled = true;
+        b.innerHTML = '⏳ Generating PDF...';
+      }
+    });
+
+    const element = document.getElementById('articleContent');
+
+    // Clone the element to remove the download button from the PDF
+    const clone = element.cloneNode(true);
+    const btnWrap = clone.querySelector('.article-download-wrap');
+    if (btnWrap) btnWrap.remove();
+
+    // Temporary container off-screen
+    const temp = document.createElement('div');
+    temp.style.position = 'absolute';
+    temp.style.left = '-9999px';
+    temp.style.top = '0';
+    temp.style.width = '210mm';
+    temp.appendChild(clone);
+    document.body.appendChild(temp);
+
+    const opt = {
+      margin:       [12, 12, 12, 12],
+      filename:     'Muhammad-Taqi-AI-Article.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true, letterRendering: true, logging: false, backgroundColor: '#ffffff' },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+
+    html2pdf().set(opt).from(clone).save().then(() => {
+      document.body.removeChild(temp);
+      buttons.forEach((b, i) => {
+        if (b) {
+          b.disabled = false;
+          b.innerHTML = originalTexts[i];
+        }
+      });
+    }).catch(err => {
+      console.error('PDF error:', err);
+      if (document.body.contains(temp)) document.body.removeChild(temp);
+      buttons.forEach((b, i) => {
+        if (b) {
+          b.disabled = false;
+          b.innerHTML = originalTexts[i];
+        }
+      });
+      alert('PDF generation failed. Please try again.');
+    });
+  }
+</script>
+
+</body>
+</html>
