@@ -558,6 +558,13 @@
             <p>CREATE YOUR OWN WEB BUILDER IN SECOND USING LYRA SOFTWARE BUILDER</p>
             <span class="card-link">View DETAIL →</span>
           </a>
+
+           <a class="card c-owner" href="https://avelia2.pages.dev/AI-HARMS">
+            <div class="card-icon">💀</div>
+            <h3>AI DISADVANTAGES</h3>
+            <p>AI IS DANGEROUS FOR SOCIETY.</p>
+            <span class="card-link">View DETAIL →</span>
+          </a>
           
         </div>
       </div>
